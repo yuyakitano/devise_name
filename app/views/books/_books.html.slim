@@ -1,0 +1,13 @@
+/ 各投稿にIDを付与
+tr id='book-#{ book.id }'
+  td
+    = book.user  do
+      = book.user.name
+  td
+    = link_to book.title, book_path(book)
+  td
+    = book.body
+  td
+    -if book.user == current_user
+      / 「remote: true」を付与
+      = link_to '削除', book, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, remote: true, class: 'btn-sm btn-danger'

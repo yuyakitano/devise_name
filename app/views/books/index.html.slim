@@ -1,7 +1,7 @@
 h1 Books#index
 .row
   .col-xs-3
-    = form_with model: @book, local: true do |f|
+    = form_with model: @book, remote: true do |f|
 
       = f.label :title, 'タイトル'
       br
@@ -29,14 +29,4 @@ h1 Books#index
 
       tbody.new_book
         - @books.each do |book|
-          tr
-            td
-              = book.user  do
-                = book.user.name
-            td
-              = link_to book.title, book_path(book)
-            td
-              = book.body
-            td
-              -if book.user == current_user
-                = link_to '削除', book, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn-sm btn-danger'
+          = render 'books', book: book

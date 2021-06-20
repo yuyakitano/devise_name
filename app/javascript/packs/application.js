@@ -4,8 +4,8 @@
 // that code so it'll be compiled.
 //= require rails-ujs
 //= require turbolinks
-//= require jquery // 追記
-//= require bootstrap-sprockets //追記
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .
 
 import Rails from "@rails/ujs"
